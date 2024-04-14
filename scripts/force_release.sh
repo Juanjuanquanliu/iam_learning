@@ -4,7 +4,7 @@
 # Use of this source code is governed by a MIT style
 # license that can be found in the LICENSE file.
 
-IAM_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+IAM_ROOT="/Users/bytedance/Documents/BackEnd/iam"
 source "${IAM_ROOT}/scripts/lib/init.sh"
 
 if [ $# -ne 1 ];then

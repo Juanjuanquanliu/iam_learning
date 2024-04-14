@@ -21,7 +21,7 @@ const configFlagName = "config"
 
 var cfgFile string
 
-//nolint: gochecknoinits
+// nolint: gochecknoinits
 func init() {
 	pflag.StringVarP(&cfgFile, "config", "c", cfgFile, "Read configuration from specified `FILE`, "+
 		"support JSON, TOML, YAML, HCL, or Java properties formats.")
@@ -41,9 +41,14 @@ func addConfigFlag(basename string, fs *pflag.FlagSet) {
 			viper.SetConfigFile(cfgFile)
 		} else {
 			viper.AddConfigPath(".")
-
 			if names := strings.Split(basename, "-"); len(names) > 1 {
+				//names[0]: iam
+
+				// output目录
+				viper.AddConfigPath(filepath.Join(".", "_output", "etc", names[0]))
+				// sh运行目录
 				viper.AddConfigPath(filepath.Join(homedir.HomeDir(), "."+names[0]))
+				// etc目录
 				viper.AddConfigPath(filepath.Join("/etc", names[0]))
 			}
 

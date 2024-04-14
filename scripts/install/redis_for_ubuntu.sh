@@ -6,7 +6,7 @@
 
 
 # The root of the build/dist directory
-IAM_ROOT=$(dirname "${BASH_SOURCE[0]}")/../..
+IAM_ROOT="/Users/bytedance/Documents/BackEnd/iam"
 [[ -z ${COMMON_SOURCED} ]] && source ${IAM_ROOT}/scripts/install/common.sh
 
 # 安装后打印必要的信息

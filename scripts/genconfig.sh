@@ -10,7 +10,7 @@
 env_file="$1"
 template_file="$2"
 
-IAM_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+IAM_ROOT="/Users/bytedance/Documents/BackEnd/iam"
 
 source "${IAM_ROOT}/scripts/lib/init.sh"
 
@@ -21,7 +21,7 @@ fi
 
 source "${env_file}"
 
-declare -A envs
+declare envs
 
 set +u
 for env in $(sed -n 's/^[^#].*${\(.*\)}.*/\1/p' ${template_file})

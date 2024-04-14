@@ -1,0 +1,52 @@
+version: '3.1'
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: iam_mariadb_test
+    restart: always
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_USER: iam_test
+      MARIADB_PASSWORD: iam_test
+      MARIADB_DATABASE: iam_test
+      MARIADB_ROOT_PASSWORD: iam_test
+    
+  adminer:
+    image: adminer
+    container_name: iam_adminer_test
+    restart: always
+    ports:
+      - 8083:8083
+
+  redis:
+    image: redis
+    container_name: iam_redis_test
+    restart: always
+    ports:
+      - 6379:6379
+    
+
+  mongo:
+    image: mongo
+    container_name: iam_mongo_test
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: iam_test
+      MONGO_INITDB_ROOT_PASSWORD: iam_test
+
+  mongo-express:
+    image: mongo-express
+    container_name: iam_mongo-express_test
+    restart: always
+    ports:
+      - 8084:8084
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: iam_test
+      ME_CONFIG_MONGODB_ADMINPASSWORD: iam_test
+      ME_CONFIG_BASICAUTH_USERNAME: iam_test
+      ME_CONFIG_BASICAUTH_PASSWORD: iam_test
+      ME_CONFIG_MONGODB_URL: mongodb://iam_test:iam_test@mongo:27017/

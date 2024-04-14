@@ -12,7 +12,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-IAM_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+IAM_ROOT="/Users/bytedance/Documents/BackEnd/iam"
 source "${IAM_ROOT}/scripts/lib/init.sh"
 
 iam::golang::setup_env

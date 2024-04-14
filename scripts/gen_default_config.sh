@@ -4,7 +4,7 @@
 # Use of this source code is governed by a MIT style
 # license that can be found in the LICENSE file.
 
-IAM_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+IAM_ROOT="/Users/bytedance/Documents/BackEnd/iam"
 
 source "${IAM_ROOT}/scripts/common.sh"
 
@@ -23,9 +23,9 @@ export IAM_PUMP_HOST=iam-pump
 export IAM_WATCHER_HOST=iam-watcher
 
 # 配置CA证书路径
-export CONFIG_USER_CLIENT_CERTIFICATE=/etc/iam/cert/admin.pem
-export CONFIG_USER_CLIENT_KEY=/etc/iam/cert/admin-key.pem
-export CONFIG_SERVER_CERTIFICATE_AUTHORITY=/etc/iam/cert/ca.pem
+export CONFIG_USER_CLIENT_CERTIFICATE=${LOCAL_OUTPUT_ROOT}/cert/admin.pem
+export CONFIG_USER_CLIENT_KEY=${LOCAL_OUTPUT_ROOT}/cert/admin-key.pem
+export CONFIG_SERVER_CERTIFICATE_AUTHORITY=${LOCAL_OUTPUT_ROOT}/cert/ca.pem
 
 for comp in iam-apiserver iam-authz-server iam-pump iam-watcher iamctl
 do

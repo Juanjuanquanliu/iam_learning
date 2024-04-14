@@ -5,7 +5,7 @@
 # license that can be found in the LICENSE file.
 
 # The root of the build/dist directory
-IAM_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+IAM_ROOT="/Users/bytedance/Documents/BackEnd/iam"
 source "${IAM_ROOT}/scripts/lib/init.sh"
 
 # OUT_DIR can come in from the Makefile, so honor it.

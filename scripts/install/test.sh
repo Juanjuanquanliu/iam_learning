@@ -6,7 +6,7 @@
 
 
 # The root of the build/dist directory
-IAM_ROOT=$(dirname "${BASH_SOURCE[0]}")/../..
+IAM_ROOT="/Users/bytedance/Documents/BackEnd/iam"
 [[ -z ${COMMON_SOURCED} ]] && source ${IAM_ROOT}/scripts/install/common.sh
 
 INSECURE_APISERVER=${IAM_APISERVER_HOST}:${IAM_APISERVER_INSECURE_BIND_PORT}

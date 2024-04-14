@@ -11,7 +11,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-IAM_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+IAM_ROOT="/Users/bytedance/Documents/BackEnd/iam"
 source "${IAM_ROOT}/scripts/common.sh"
 source "${IAM_ROOT}/scripts/lib/release.sh"
 
