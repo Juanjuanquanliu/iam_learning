@@ -2,11 +2,11 @@
 -- Use of this source code is governed by a MIT style
 -- license that can be found in the LICENSE file.
 
-CREATE DATABASE  IF NOT EXISTS `iam` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `iam`;
+CREATE DATABASE  IF NOT EXISTS `iam_test` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `iam_test`;
 -- MySQL dump 10.13  Distrib 5.7.29, for Win64 (x86_64)
 --
--- Host: 106.52.30.200    Database: iam
+-- Host: 106.52.30.200    Database: iam_test
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.5.9-MariaDB
 
@@ -61,7 +61,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`iam`@`127.0.0.1`*/ /*!50003 TRIGGER `iam`.`policy_BEFORE_DELETE` BEFORE DELETE ON `policy` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`iam_test`@`127.0.0.1`*/ /*!50003 TRIGGER `iam_test`.`policy_BEFORE_DELETE` BEFORE DELETE ON `policy` FOR EACH ROW
 BEGIN
 	insert into policy_audit values(old.id, old.instanceID, old.name, old.username, old.policyShadow, old.extendShadow, old.createdAt, old.updatedAt, curtime());
 END */;;
@@ -182,7 +182,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'PIPES_AS_CONCAT,ANSI_QUOTES,ONLY_FULL_GROUP_BY,NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER="iam"@"127.0.0.1"*/ /*!50003 TRIGGER `iam`.`user_BEFORE_DELETE` BEFORE DELETE ON `user` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER="iam_test"@"127.0.0.1"*/ /*!50003 TRIGGER `iam_test`.`user_BEFORE_DELETE` BEFORE DELETE ON `user` FOR EACH ROW
 BEGIN
 	delete from secret where username = old.name;
     delete from policy where username = old.name;
@@ -194,11 +194,11 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Dumping events for database 'iam'
+-- Dumping events for database 'iam_test'
 --
 
 --
--- Dumping routines for database 'iam'
+-- Dumping routines for database 'iam_test'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
